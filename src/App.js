@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React, { useState, useMemo} from 'react';
 import './App.css';
 
+const skills = [ "HTML", "CSS", "JavaScript", "...1000 more"]
 function App() {
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const searchResults = useMemo(() =>{ 
+    return skills.filter(s => s.includes(searchTerm))},
+   [searchTerm])
+
+  const handleSearchInput = (e) => {
+    setSearchTerm(e.target.value)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Search searchResults</h2>
+      <input onChange={handleSearchInput} />
+      <ul>
+        {searchResults.map((result, i) => (
+          <li key={i}>{result}</li>
+        ))}
+      </ul>
     </div>
   );
 }
