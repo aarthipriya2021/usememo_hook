@@ -1,0 +1,18 @@
+Hooks:
+     -	Hooks are the functions which "hook into" React state and lifecycle features from        
+            function  components	.
+    -	React offers a number of built-in Hooks. A few of these include  useState(),    
+         useEffect(),  useContext(), useReducer(),    and useRef() 
+
+Rules:
+    -   Never call Hooks from inside a loop, condition or nested function
+    -   Hooks should sit at the top-level of your component
+    -   Only call Hooks from React functional components
+    -   Never call a Hook from a regular function
+    -   Hooks can call other Hooks
+
+usememo:
+    -   The useMemo is a hook used in the functional component of react that returns a memoized value.
+    -   useMemo will call the function and return its return value.
+syntax:
+    const memoizedValue = useMemo(functionThatReturnsValue, arrayDepencies)
